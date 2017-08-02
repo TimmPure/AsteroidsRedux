@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 114055415691114090}
   - component: {fileID: 114338352420178156}
   - component: {fileID: 114013874796482792}
-  - component: {fileID: 114472222070267220}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -111,19 +110,19 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881564858734020}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &60359225136456806
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -201,20 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a5d1162472ec947be2c325135a7194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114472222070267220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1881564858734020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2c1939759f06f4c97e2fb9bc6debbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  asteroidSize: 3
-  asteroids: []
 --- !u!212 &212609174037706402
 SpriteRenderer:
   m_ObjectHideFlags: 1
