@@ -8,24 +8,33 @@ public class AsteroidDamageHandler : MonoBehaviour {
     public int asteroidSize = 3;
     public GameObject[] asteroids;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (collision.gameObject.tag != gameObject.tag)
+        if (coll.gameObject.tag != gameObject.tag)
         {
             health--;
             if(health <= 0)
             {
                 if (asteroidSize > 0)
                 {
-                    SpawnSmaller();
+                    SpawnSmaller(coll);
                 }
                 Destroy(gameObject);
             }
         }
     }
 
-    private void SpawnSmaller()
+    private void SpawnSmaller(Collision2D coll)
     {
-        Instantiate(asteroids[asteroidSize - 1]);
+        Vector2 directionOfHit = ((Vector2)transform.position - coll.contacts[0].point).normalized;
+        Vector2 something = Quaternion.Euler(0, 0, 45) * directionOfHit;
+        Vector2 spawnPosition = coll.contacts[0].point + something;
+        GameObject obj = Instantiate(asteroids[asteroidSize - 1], spawnPosition, Quaternion.identity);
+        obj.GetComponent<Asteroid>().randomVector = something.normalized;
+
+        something = Quaternion.Euler(0, 0, -45) * directionOfHit;
+        spawnPosition = coll.contacts[0].point + something;
+        GameObject obj2 = Instantiate(asteroids[asteroidSize - 1], spawnPosition, Quaternion.identity);
+        obj2.GetComponent<Asteroid>().randomVector = something.normalized;
     }
 }
