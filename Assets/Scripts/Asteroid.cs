@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour {
     public float initialVelocity = 150f;
     private Transform parent;
 
-    private Vector2 randomVector;
+    public Vector2 randomVector = Vector2.zero;
     private Rigidbody2D rb;
     private float startMagnitude;
 
@@ -16,7 +16,10 @@ public class Asteroid : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         //Give Asteroid an initial velocity in a random direction
-        randomVector = new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized;
+        if(randomVector == Vector2.zero)
+        {
+            randomVector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        }
         rb.AddForce(randomVector * initialVelocity);
 
         parent = GameObject.Find("Asteroids").transform;
