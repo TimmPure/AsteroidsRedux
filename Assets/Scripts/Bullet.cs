@@ -17,4 +17,12 @@ public class Bullet : MonoBehaviour {
         Vector2 yDelta = Vector2.up * maxSpeed * Time.deltaTime;
         transform.position += transform.rotation * yDelta;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroids"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

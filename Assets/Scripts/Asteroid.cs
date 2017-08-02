@@ -14,12 +14,13 @@ public class Asteroid : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+
+        //Give Asteroid an initial velocity in a random direction
         randomVector = new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized;
         rb.AddForce(randomVector * initialVelocity);
 
         parent = GameObject.Find("Asteroids").transform;
         if (!parent) { Debug.LogError("No Asteroid parent object found on " + name); }
-
         transform.parent = parent;
 	}
 
@@ -29,6 +30,8 @@ public class Asteroid : MonoBehaviour {
         {
             startMagnitude = rb.velocity.magnitude;
         }
+
+        //Hard-code velocity magnitude staying the same after collisions
         rb.velocity = rb.velocity.normalized * startMagnitude;
     }
 }
