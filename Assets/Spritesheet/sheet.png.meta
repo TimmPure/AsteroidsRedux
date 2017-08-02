@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9b6fc01d7f79d0e4c874a94a2eaf9182
-timeCreated: 1501614051
+timeCreated: 1501678416
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -111,7 +111,7 @@ TextureImporter:
     21300208: gun10.png
     21300210: laserBlue01.png
     21300212: laserBlue02.png
-    21300214: laserBlue03.png
+    21300214: SimpleLazer
     21300216: laserBlue04.png
     21300218: laserBlue05.png
     21300220: laserBlue06.png
@@ -1755,15 +1755,15 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: laserBlue03.png
+      name: SimpleLazer
       rect:
         serializedVersion: 2
         x: 856
         y: 930
         width: 9
         height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
