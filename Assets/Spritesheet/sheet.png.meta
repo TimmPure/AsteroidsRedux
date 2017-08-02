@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9b6fc01d7f79d0e4c874a94a2eaf9182
-timeCreated: 1501678416
+timeCreated: 1501680329
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -157,16 +157,16 @@ TextureImporter:
     21300300: laserRed14.png
     21300302: laserRed15.png
     21300304: laserRed16.png
-    21300306: meteorBrown_big1.png
+    21300306: AsteroidBigBrown
     21300308: meteorBrown_big2.png
     21300310: meteorBrown_big3.png
     21300312: meteorBrown_big4.png
-    21300314: meteorBrown_med1.png
+    21300314: AsteroidMedBrown
     21300316: meteorBrown_med3.png
     21300318: meteorBrown_small1.png
-    21300320: meteorBrown_small2.png
+    21300320: AsteroidSmallBrown
     21300322: meteorBrown_tiny1.png
-    21300324: meteorBrown_tiny2.png
+    21300324: AsteroidTinyBrown
     21300326: meteorGrey_big1.png
     21300328: meteorGrey_big2.png
     21300330: meteorGrey_big3.png
@@ -2353,7 +2353,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: meteorBrown_big1.png
+      name: AsteroidBigBrown
       rect:
         serializedVersion: 2
         x: 224
@@ -2405,7 +2405,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: meteorBrown_med1.png
+      name: AsteroidMedBrown
       rect:
         serializedVersion: 2
         x: 651
@@ -2444,7 +2444,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: meteorBrown_small2.png
+      name: AsteroidSmallBrown
       rect:
         serializedVersion: 2
         x: 778
@@ -2470,7 +2470,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: meteorBrown_tiny2.png
+      name: AsteroidTinyBrown
       rect:
         serializedVersion: 2
         x: 399
