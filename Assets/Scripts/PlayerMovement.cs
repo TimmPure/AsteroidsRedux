@@ -26,14 +26,11 @@ public class PlayerMovement : MonoBehaviour {
 
         //Update transform based on rotation and movement
         transform.rotation = rotation;
-
         rb.AddForce(rotation * yDelta);
-        
 	}
 
     private void FixedUpdate() {
         rb.velocity = rb.velocity.normalized* Mathf.Min(rb.velocity.magnitude, maxSpeed);
-        
     }
 
 }

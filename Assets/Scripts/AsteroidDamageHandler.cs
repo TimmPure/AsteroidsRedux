@@ -27,14 +27,14 @@ public class AsteroidDamageHandler : MonoBehaviour {
     private void SpawnSmaller(Collision2D coll)
     {
         Vector2 directionOfHit = ((Vector2)transform.position - coll.contacts[0].point).normalized;
-        Vector2 something = Quaternion.Euler(0, 0, 45) * directionOfHit;
-        Vector2 spawnPosition = coll.contacts[0].point + something;
+        Vector2 directionToSpawn = Quaternion.Euler(0, 0, 45) * directionOfHit;
+        Vector2 spawnPosition = coll.contacts[0].point + directionToSpawn;
         GameObject obj = Instantiate(asteroids[asteroidSize - 1], spawnPosition, Quaternion.identity);
-        obj.GetComponent<Asteroid>().randomVector = something.normalized;
+        obj.GetComponent<Asteroid>().randomVector = directionToSpawn.normalized;
 
-        something = Quaternion.Euler(0, 0, -45) * directionOfHit;
-        spawnPosition = coll.contacts[0].point + something;
+        directionToSpawn = Quaternion.Euler(0, 0, -45) * directionOfHit;
+        spawnPosition = coll.contacts[0].point + directionToSpawn;
         GameObject obj2 = Instantiate(asteroids[asteroidSize - 1], spawnPosition, Quaternion.identity);
-        obj2.GetComponent<Asteroid>().randomVector = something.normalized;
+        obj2.GetComponent<Asteroid>().randomVector = directionToSpawn.normalized;
     }
 }

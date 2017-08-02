@@ -13,13 +13,12 @@ public class AsteroidSpawner : MonoBehaviour {
     private float timeToSpawn;
     private Transform asteroidsParent;
 
-    // Use this for initialization
     void Start () {
         timeToSpawn = Random.Range(minSpawnTime, maxSpawnTime);
         asteroidsParent = GameObject.Find("Asteroids").transform;
-	}
+        if (!asteroidsParent) { Debug.LogError("No Asteroid parent object found on " + name); }
+    }
 	
-	// Update is called once per frame
 	void Update () {
         timeToSpawn -= Time.deltaTime;
 

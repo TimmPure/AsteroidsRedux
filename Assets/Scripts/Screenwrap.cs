@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Screenwrap : MonoBehaviour {
     private Camera cam;
+    private Asteroid asteroid;
 
     private float camHeight, camWidth;
     private Vector2 objPos;
@@ -12,13 +13,14 @@ public class Screenwrap : MonoBehaviour {
     {
         cam = Camera.main;
 
-        camHeight = cam.orthographicSize;                     //orthoSize = camera height half-size in game units
+        camHeight = cam.orthographicSize;
         camWidth = cam.aspect * camHeight;
+
+        asteroid = GetComponent<Asteroid>();
     }
 
     private void LateUpdate()
     {
-        Asteroid asteroid = GetComponent<Asteroid>();
         if (asteroid && !asteroid.InPlay) {
             return;
         }
@@ -32,11 +34,11 @@ public class Screenwrap : MonoBehaviour {
 
         if(Mathf.Abs(objPos.x) >= camWidth)
         {
-            objPos.x *= -.99f;
+            objPos.x *= -.95f;
         }
         if (Mathf.Abs(objPos.y) >= camHeight)
         {
-            objPos.y *= -.99f;
+            objPos.y *= -.95f;
         }
 
         transform.position = objPos;

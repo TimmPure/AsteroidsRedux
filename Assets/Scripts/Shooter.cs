@@ -8,7 +8,7 @@ public class Shooter : MonoBehaviour {
     private GameObject projectile;
     private Transform projectileParent, shotOrigin;
 
-    private float fireRate = 5f;                         //Rate of fire in number of shots per second. Set to zero for single shots.
+    private float fireRate = 5f;                         //Rate of fire in number of shots per second
     private float timeToFire = 0f;
     private float shotStrength = 45f;
 
@@ -25,7 +25,7 @@ public class Shooter : MonoBehaviour {
     {
         if (Input.GetButton("Fire1") && Time.time > timeToFire)
         {
-            timeToFire = Time.time + 1 / fireRate;                           //and increment timeToFire
+            timeToFire = Time.time + 1 / fireRate;
             Fire();
         }
     }
