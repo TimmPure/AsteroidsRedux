@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Screenwrap : MonoBehaviour {
     private Camera cam;
-    private Transform player;
 
     private float camHeight, camWidth;
-    private Vector2 playerPos;
+    private Vector2 objPos;
 
     void Start()
     {
-        player = GetComponent<Transform>();
         cam = Camera.main;
 
         camHeight = cam.orthographicSize;                     //orthoSize = camera height half-size in game units
@@ -20,23 +18,28 @@ public class Screenwrap : MonoBehaviour {
 
     private void LateUpdate()
     {
+        Asteroid asteroid = GetComponent<Asteroid>();
+        if (asteroid && !asteroid.InPlay) {
+            return;
+        }
+
         ScreenWrap();
     }
 
     private void ScreenWrap()
     {
-        playerPos = player.position;
+        objPos = transform.position;
 
-        if(Mathf.Abs(playerPos.x) >= camWidth)
+        if(Mathf.Abs(objPos.x) >= camWidth)
         {
-            playerPos.x *= -.99f;
+            objPos.x *= -.99f;
         }
-        if (Mathf.Abs(playerPos.y) >= camHeight)
+        if (Mathf.Abs(objPos.y) >= camHeight)
         {
-            playerPos.y *= -.99f;
+            objPos.y *= -.99f;
         }
 
-        player.position = playerPos;
+        transform.position = objPos;
     }
 
 }

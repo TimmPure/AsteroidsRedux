@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour {
 
     public float initialVelocity = 150f;
     private Transform parent;
+    public bool InPlay { get; set; }
 
     public Vector2 randomVector = Vector2.zero;
     private Rigidbody2D rb;
@@ -36,5 +37,15 @@ public class Asteroid : MonoBehaviour {
 
         //Hard-code velocity magnitude staying the same after collisions
         rb.velocity = rb.velocity.normalized * startMagnitude;
+    }
+
+    private void Update() {
+        Vector2 screenPos = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (screenPos.x > 0 && screenPos.x < 1f && screenPos.y > 0 && screenPos.y < 1f) {
+            InPlay = true;
+            GetComponent<PolygonCollider2D>().enabled = true;
+        }
+
     }
 }
