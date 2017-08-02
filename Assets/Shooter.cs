@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour {
 
     private float fireRate = 5f;                         //Rate of fire in number of shots per second. Set to zero for single shots.
     private float timeToFire = 0f;
+    private float shotStrength = 45f;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Shooter : MonoBehaviour {
     {
         projectile = Instantiate(projectilePrefab, shotOrigin.position, shotOrigin.rotation) as GameObject;
         projectile.transform.parent = projectileParent;
+        projectile.GetComponent<Rigidbody2D>().AddForce(shotOrigin.rotation * new Vector2(0,shotStrength));
 
         Destroy(projectile,2f);
     }
