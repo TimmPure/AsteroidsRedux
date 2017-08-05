@@ -15,18 +15,35 @@ public class Asteroid : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        parent = GameObject.Find("Asteroids").transform;
+        if (!parent) { Debug.LogError("No Asteroid parent object found on " + name); }
 
-        //Give Asteroid an initial velocity in a random direction
-        if(randomVector == Vector2.zero)
-        {
+        transform.parent = parent;
+
+        RandomizeScale();
+        GiveInitialVelocity();
+        GiveInitialSpin();
+	}
+
+    private void RandomizeScale() {
+        Vector2 asteroidScale = transform.localScale;
+        if (Random.value > .5f) { asteroidScale.y *= -1f; }
+        if (Random.value > .5f) { asteroidScale.x *= -1f; }
+        transform.localScale = asteroidScale;
+    }
+
+    private void GiveInitialVelocity() {
+        if (randomVector == Vector2.zero) {
             randomVector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
         rb.AddForce(randomVector * initialVelocity);
+    }
 
-        parent = GameObject.Find("Asteroids").transform;
-        if (!parent) { Debug.LogError("No Asteroid parent object found on " + name); }
-        transform.parent = parent;
-	}
+    private void GiveInitialSpin() {
+        if (rb.angularVelocity == 0) {
+            rb.angularVelocity = Random.Range(-240, 240)/rb.mass;
+        }
+    }
 
     private void FixedUpdate()
     {
